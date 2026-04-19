@@ -32,7 +32,7 @@ newbalanceDest = st.number_input("New Balance Dest", min_value=0.0)
 isFlaggedFraud = st.selectbox("Flagged Fraud", [0,1])
 
 # =========================
-# ENCODING TYPE
+# ENCODING TYPE → CLASS
 # =========================
 type_map = {
     "CASH_OUT": 0,
@@ -49,7 +49,7 @@ if st.button("Prediksi"):
 
     data = [[
         step,
-        type_encoded,
+        type_encoded,  # masuk ke Class
         amount,
         oldbalanceOrg,
         newbalanceOrig,
@@ -58,8 +58,9 @@ if st.button("Prediksi"):
         isFlaggedFraud
     ]]
 
+    # 🔥 FIX DI SINI (type → Class)
     columns = [
-        'step','type','amount','oldbalanceOrg',
+        'step','Class','amount','oldbalanceOrg',
         'newbalanceOrig','oldbalanceDest',
         'newbalanceDest','isFlaggedFraud'
     ]
